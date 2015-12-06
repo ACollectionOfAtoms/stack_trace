@@ -1,0 +1,11 @@
+#title {
+  width: 15%;
+}
+
+#mainTextField {
+  width: 85%;
+}
+.form-control {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
