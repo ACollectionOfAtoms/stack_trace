@@ -1,11 +1,31 @@
 #title {
   width: 15%;
+  text-align: right;
+}
+
+#mainTextFieldContainer {
+  width: 85%;
 }
 
 #mainTextField {
-  width: 85%;
-}
-.form-control {
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+#page-top {
+  background-color: #F7F7F9;
+  border-bottom: black;
+}
+
+#side-bar {
+  margin-top: 10px;
+}
+
+#mainWindow {
+  height: 100%;
+}
+
+.popList {
+  text-align: center;
+  margin-top: 10px;
 }
