@@ -1,11 +1,20 @@
 var stackList = [],
+    mainQueryField = $('mainTextField');
     stackUIList = $('.list-group'),
-    stackItem = $('#stackItemField');
+    stackItemField = $('#stackItemField'),
     addButton = $('#addToStackList');
+    addToStack = function() {
+      var stackItem = stackItemField.val();
+      stackList.push(stackItem);
+      stackUIList.append("<li class='list-group-item'>" + stackItem + "</li>")
+    }
 $(document).ready( function() {
   addButton.click(function() {
-    var stackItemVal = stackItem.val();
-    stackList.push(stackItemVal);
-    stackUIList.append("<li class='list-group-item'>" + stackItemVal + "</li>")
+    addToStack();
+  });
+  stackItemField.keyup(function(event){
+    if(event.keyCode == 13){
+      addButton.click();
+    }
   });
 });
