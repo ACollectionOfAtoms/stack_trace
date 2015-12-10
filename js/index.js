@@ -1,4 +1,5 @@
 var stackList = [],
+    mainQuery = '',
     mainQueryField = $('mainTextField');
     stackUIList = $('.list-group'),
     stackItemField = $('#stackItemField'),
@@ -6,7 +7,12 @@ var stackList = [],
     addToStack = function() {
       var stackItem = stackItemField.val();
       stackList.push(stackItem);
-      stackUIList.append("<li class='list-group-item'>" + stackItem + "</li>")
+      stackUIList.prepend("<li class='list-group-item'>" + stackItem + "</li>")
+      stackItemField.val('');
+    }
+    getQuery = function () {
+      var query = mainQueryField.val();
+      mainQuery = query;
     }
 $(document).ready( function() {
   addButton.click(function() {

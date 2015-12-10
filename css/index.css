@@ -5,12 +5,9 @@
 
 #mainTextFieldContainer {
   width: 85%;
+  margin-top: 1.5%;
 }
 
-#mainTextField {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
 
 #page-top {
   background-color: #F7F7F9;
