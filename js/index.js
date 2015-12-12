@@ -25,7 +25,7 @@ var stackList = [],
       return queries;
     }
 
-$(document).ready( function() {
+$(document).ready(function() {
   addButton.click(function() {
     addToStack();
   });
