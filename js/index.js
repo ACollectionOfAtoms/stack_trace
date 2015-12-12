@@ -1,9 +1,10 @@
 var stackList = [],
     mainQuery = '',
-    mainQueryField = $('mainTextField');
+    mainQueryField = $('#mainTextField'),
     stackUIList = $('.list-group'),
     stackItemField = $('#stackItemField'),
-    addButton = $('#addToStackList');
+    addButton = $('#addToStackList'),
+    searchButton = $('#searchButton');
     addToStack = function() {
       var stackItem = stackItemField.val();
       stackList.push(stackItem);
@@ -14,6 +15,16 @@ var stackList = [],
       var query = mainQueryField.val();
       mainQuery = query;
     }
+    genQueries = function (str, ary) {
+      var i = 0,
+          queries = {};
+      for (i; i < ary.length; i++) {
+        queries[ary[i]] = { "query": str + " " + ary[i],
+                            "hits" : 0};
+      };
+      return queries;
+    }
+
 $(document).ready( function() {
   addButton.click(function() {
     addToStack();
@@ -23,4 +34,13 @@ $(document).ready( function() {
       addButton.click();
     }
   });
+  searchButton.click(function() {
+    getQuery();
+    p = genQueries(mainQuery, stackList);
+  })
+  mainQueryField.keyup(function(event){
+    if(event.keyCode == 13){
+      searchButton.click();
+    }
+  })
 });
