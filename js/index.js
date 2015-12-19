@@ -24,6 +24,10 @@ var stackList = [],
       };
       return queries;
     }
+    startSearch = function (str) {
+        var queries = genQueries(str, stackList);
+        console.log(queries);
+    };
 
 $(document).ready(function() {
   addButton.click(function() {
@@ -34,8 +38,10 @@ $(document).ready(function() {
       addButton.click();
     }
   });
+
   searchButton.click(function() {
     getQuery();
+    startSearch(mainQuery);
     p = genQueries(mainQuery, stackList);
   })
   mainQueryField.keyup(function(event){
