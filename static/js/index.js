@@ -20,7 +20,7 @@ var stackList = [],
           queries = {};
       for (i; i < ary.length; i++) {
         var query = str + " " + ary[i],
-            hits;
+            hits = 0;
         queries[ary[i]] = { "query": query,
                             "hits" : hits};
       };
@@ -28,7 +28,13 @@ var stackList = [],
     }
     startSearch = function (str) {
         var queries = genQueries(str, stackList);
-        console.log(queries);
+        $.ajax({
+          type: "POST",
+          url: "/results",
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(queries),
+          dataType: "json",
+        });
     };
 
 $(document).ready(function() {
@@ -44,8 +50,8 @@ $(document).ready(function() {
   searchButton.click(function() {
     getQuery();
     startSearch(mainQuery);
-    p = genQueries(mainQuery, stackList);
   })
+
   mainQueryField.keyup(function(event){
     if(event.keyCode == 13){
       searchButton.click();
