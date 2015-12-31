@@ -1,12 +1,8 @@
 import requests
 from BeautifulSoup import BeautifulSoup
-import sys
 
 """
-Returns number of hits from google page. Use as
-----
-python screenscrape.py <query>
-----
+Returns number of hits from google.
 """
 
 
@@ -19,11 +15,3 @@ def return_results(query):
     result = soup.find('div', {'id': 'resultStats'}).text
     result = result.split()
     return result[1]
-
-#     sys.stdout.flush()
-#
-#
-# def main():
-#     query = str(sys.argv[1])
-#     return_results(query)
-# main()
