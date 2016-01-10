@@ -1,5 +1,4 @@
-import requests
-from BeautifulSoup import BeautifulSoup
+from googlesearch import GoogleSearch as gs
 
 """
 Returns number of hits from google.
@@ -7,11 +6,4 @@ Returns number of hits from google.
 
 
 def return_results(query):
-    r = requests.get('http://www.google.com/search',
-                     params={'q': '"' + query + '"',
-                             "tbs": "li:1"}
-                    )
-    soup = BeautifulSoup(r.text)
-    result = soup.find('div', {'id': 'resultStats'}).text
-    result = result.split()
-    return result[1]
+    return gs(query).count()
